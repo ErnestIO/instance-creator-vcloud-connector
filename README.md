@@ -4,8 +4,8 @@ Instance creator vcloud connector aims to be an interface to create instances th
 
 ## Build status
 
-* master:  [![CircleCI](https://circleci.com/gh/ErnestIO/instance-creator-vcloud-connector/tree/master.svg?style=svg)](https://circleci.com/gh/ErnestIO/instance-creator-vcloud-connector/tree/master)
-* develop: [![CircleCI](https://circleci.com/gh/ErnestIO/instance-creator-vcloud-connector/tree/develop.svg?style=svg)](https://circleci.com/gh/ErnestIO/instance-creator-vcloud-connector/tree/develop)
+* master:  [![CircleCI](https://circleci.com/gh/ernestio/instance-creator-vcloud-connector/tree/master.svg?style=svg)](https://circleci.com/gh/ernestio/instance-creator-vcloud-connector/tree/master)
+* develop: [![CircleCI](https://circleci.com/gh/ernestio/instance-creator-vcloud-connector/tree/develop.svg?style=svg)](https://circleci.com/gh/ernestio/instance-creator-vcloud-connector/tree/develop)
 
 ## Installation
 
