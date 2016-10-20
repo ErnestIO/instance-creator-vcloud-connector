@@ -7,9 +7,6 @@ require 'myst'
 include Myst::Providers::VCloud
 
 def create_instance(data)
-  values = data.values_at(:datacenter_name, :client_name, :router_name, :network_name).compact
-  return false unless data[:type] == 'vcloud' && values.length == 4
-
   credentials = data[:datacenter_username].split('@')
   provider = Provider.new(endpoint:     data[:vcloud_url],
                           organisation: credentials.last,
