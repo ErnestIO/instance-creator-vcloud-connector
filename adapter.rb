@@ -7,9 +7,6 @@ require 'myst'
 include Myst::Providers::VCloud
 
 def create_instance(data)
-  values = data.values_at(:datacenter_name, :client_name, :router_name, :network_name).compact
-  return false unless data[:instance_type] == 'vcloud' && values.length == 4
-
   credentials = data[:datacenter_username].split('@')
   provider = Provider.new(endpoint:     data[:vcloud_url],
                           organisation: credentials.last,
@@ -18,10 +15,10 @@ def create_instance(data)
   instance = ComputeInstance.new(client: provider.client)
   datacenter = provider.datacenter(data[:datacenter_name])
   network = datacenter.private_network(data[:network_name])
-  image = provider.image(data[:instance_resource][:reference_image],
-                         data[:instance_resource][:reference_catalog])
+  image = provider.image(data[:reference_image],
+                         data[:reference_catalog])
 
-  datacenter.add_compute_instance(instance, data[:instance_name], network, image)
+  datacenter.add_compute_instance(instance, data[:name], network, image)
 
   'instance.create.vcloud.done'
 rescue => e
