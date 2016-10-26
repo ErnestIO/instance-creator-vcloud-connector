@@ -20,6 +20,13 @@ def create_instance(data)
 
   datacenter.add_compute_instance(instance, data[:name], network, image)
 
+  unless data[:shell_commands].empty?
+    customSection = instance.vm.getGuestCustomizationSection
+    customSection.setEnabled(true)
+    customSection.setCustomizationScript(data[:shell_commands])
+    instance.vm.updateSection(customSection).waitForTask(0, 1000)
+  end
+
   'instance.create.vcloud.done'
 rescue => e
   puts e
