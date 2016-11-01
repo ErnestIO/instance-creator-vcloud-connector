@@ -23,7 +23,7 @@ def create_instance(data)
   unless data[:shell_commands].nil? || data[:shell_commands].empty?
     custom_section = instance.vm.getGuestCustomizationSection
     custom_section.setEnabled(true)
-    custom_section.setCustomizationScript(data[:shell_commands].join('\n'))
+    custom_section.setCustomizationScript(data[:shell_commands].join("\n"))
     instance.vm.updateSection(custom_section).waitForTask(0, 1000)
   end
 
